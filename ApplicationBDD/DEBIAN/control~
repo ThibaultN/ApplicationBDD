@@ -1,0 +1,9 @@
+Package : ApplicationDatabases
+Version : 1.0
+Section : base
+Priority : optionnal
+Architecture : all
+Depends: bash, libQt4-Sql,libQt4-sql-mysql, libQt4-sql-sqlite, libQtGui4, libQtCore4, mysql-server, dbconfig-common
+Maintainer: tnour <nourthibault@gmail.com>
+Description: ui.
+Homepage: http://thibaultnourportfolio.fr/
