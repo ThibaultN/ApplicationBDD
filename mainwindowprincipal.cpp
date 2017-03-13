@@ -38,6 +38,7 @@ void MainWindowPrincipal::on_pushButton_4_clicked()
 // ------------------- Database -------------------
 /**
  * @brief MainWindowPrincipal::chargerLesDatabases
+ * On charge les databases via requete SQL
  */
 void MainWindowPrincipal::chargerLesDatabases()
 {
@@ -57,6 +58,8 @@ void MainWindowPrincipal::chargerLesDatabases()
 /**
  * @brief MainWindowPrincipal::on_comboBoxDatabase_currentIndexChanged
  * @param arg1
+ * Affichage les tables lorsqu'on sélectionne une database depuis la combobox
+ * Et réiniatilise l'affichage à chaque changement au niveau des tables et champs
  */
 void MainWindowPrincipal::on_comboBoxDatabase_currentIndexChanged(const QString &arg1)
 {
@@ -75,6 +78,7 @@ void MainWindowPrincipal::on_comboBoxDatabase_currentIndexChanged(const QString 
 /**
  * @brief MainWindowPrincipal::on_listWidgetTable_itemClicked
  * @param item
+ * Lorsqu'on sélectionne une table affiche les champs contenus
  */
 void MainWindowPrincipal::on_listWidgetTable_itemClicked(QListWidgetItem *item)
 {
@@ -85,6 +89,7 @@ void MainWindowPrincipal::on_listWidgetTable_itemClicked(QListWidgetItem *item)
 
 /**
  * @brief MainWindowPrincipal::chargerLesTables
+ * Charge les tables via requete SQL
  */
 void MainWindowPrincipal::chargerLesTables()
 {
@@ -103,6 +108,7 @@ void MainWindowPrincipal::chargerLesTables()
 // ------------------- Champs -------------------
 /**
  * @brief MainWindowPrincipal::chargerLesChamps
+ * Charge les champs via requete SQL
  */
 void MainWindowPrincipal::chargerLesChamps()
 {
@@ -120,6 +126,8 @@ void MainWindowPrincipal::chargerLesChamps()
 // ------------------- Requete -------------------
 /**
  * @brief MainWindowPrincipal::on_textEditRequete_textChanged
+ * Lorsqu'on ecris notre requete on la stock dans une QString qui est execute par la methode
+ * resultatRequete
  */
 void MainWindowPrincipal::on_textEditRequete_textChanged()
 {
@@ -139,7 +147,7 @@ void MainWindowPrincipal::on_textEditRequete_textChanged()
 
 /**
  * @brief MainWindowPrincipal::on_pushButtonVerificationRequete_clicked
- * Verification de la requete
+ * Indique les erreurs lors du clique sur le bouton "?" si la requete est invalide
  */
 void MainWindowPrincipal::on_pushButtonVerificationRequete_clicked()
 {
@@ -162,6 +170,8 @@ void MainWindowPrincipal::on_pushButtonQuitter_clicked()
 
 /**
  * @brief MainWindowPrincipal::resultatRequete
+ * Verifie la requete est l'execute si elle est exacte
+ * Sinon le bouton "?" s'affiche en rouge indiquant une erreur dans la requete
  */
 void MainWindowPrincipal::resultatRequete()
 {
@@ -276,6 +286,10 @@ void MainWindowPrincipal::on_listWidgetRequeteHistorique_itemClicked(QListWidget
 }
 
 // ------------------- Exportation en CSV -------------------
+/**
+ * @brief MainWindowPrincipal::on_pushButtonExporterCSV_clicked
+ * Exporte les résultats afficher au moment
+ */
 void MainWindowPrincipal::on_pushButtonExporterCSV_clicked()
 {
     QString filename = QFileDialog::getSaveFileName(this, "MainWindowPrincipalTitle", "filename.csv", "CSV files (.csv);;Zip files (.zip, *.7z)", 0, 0);
@@ -297,6 +311,7 @@ void MainWindowPrincipal::on_pushButtonExporterCSV_clicked()
     }
 }
 
+// --------------------------------------
 void MainWindowPrincipal::on_action_Quit_triggered()
 {
     this->close();
